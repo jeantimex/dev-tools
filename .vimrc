@@ -44,8 +44,6 @@ let g:airline_theme='papercolor'
 " Basic vim setup
 "
 colorscheme papercolor
-"highlight NonText ctermfg=236
-"highlight VertSplit cterm=NONE ctermfg=Green ctermbg=NONE
 
 set nowrap
 set laststatus=2
@@ -60,8 +58,12 @@ filetype indent on   " load filetype-specific indent files
 set showmatch        " highlight matching [{()}]
 set incsearch        " search as characters are entered
 set hlsearch         " highlight matches
+
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
+
+" make the left and right movement wrap to previous/next line
+set ww+=<,>
 
 " make the backspace work like in most other programs
 set backspace=indent,eol,start
@@ -72,10 +74,6 @@ set fillchars=vert:│
 
 " FZF stuff
 set rtp+=/usr/local/opt/fzf
-
-" Auto set paste and nopaste on paste
-let &t_SI .= "\<Esc>[?2004h"
-let &t_EI .= "\<Esc>[?2004l"
 
 " Avoid putting comments in front of new lines
 au FileType * set fo-=c fo-=r fo-=o
